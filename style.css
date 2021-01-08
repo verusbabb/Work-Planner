@@ -28,16 +28,18 @@ textarea{
 .time-block{
   text-align: center;
   border-radius: 15px;
+  width: 80px;
 }
 
 .row {
-  white-space: pre-wrap;
+  /* white-space: pre-wrap; */
   height: 80px;
   border-top: 1px solid white;
 }
 
 .hour {
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
+  background-color: lightgray;
   color: #000000;
   border-top: 1px dashed #000000;
 }
@@ -69,3 +71,5 @@ textarea{
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
+
+
