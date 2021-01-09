@@ -21,5 +21,7 @@ $(document).ready(function () {
     // THEN the app needs to save user entry to local storage
     //  --Listen for click event on save button
     //  --set local storage (key and value) --> STORE BOTH TIME AND DESCRIPTION SO THAT NEXT APPEND KNOWS WHAT AND WHERE
+    //      --maybe need to start by creating an object that has hourblocks and values for each...is that what I want to store?  Look at activity 1.
+    //          --when setting the object local storage use JSON.stringify.  When get JSON.parse.
 
 });
