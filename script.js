@@ -1,16 +1,29 @@
-$("document").ready(function () {});
-    // moment().format();
+$(document).ready(function () {
 
-    var hour1 = "";
-
-    var storeOne = "Hello";
-
-    localStorage.setItem("storeOne", storeOne);
-    localStorage.getItem("storeOne");
-
-    // WHEN the page first loads:
+// WHEN the page first loads:
     // THEN it needs to update to current date and time.
-    //  --Moment()
+        //  --Moment()
+var now = moment().format('MMMM Do YYYY'); //for calendar date at the top of page
+var whichHour = moment().format("H"); //for checking past, present, future of each hour-block in work-planner
+console.log(now);
+console.log(whichHour);
+
+var $todaysDate = $("#currentDay");
+$todaysDate.text(now);
+
+// Create empty string vars that correspond to all hours on the daily planner
+var hour8 = "";
+var hour9 = "";
+var hour10 = "";
+var hour11 = "";
+var hour12 = "";
+var hour13 = "";
+var hour14 = "";
+var hour15 = "";
+var hour16 = "";
+var hour17 = "";
+
+   
 
     // WHEN current date and time is set...
     // THEN the app needs to check what calendar hours are in the past, present, and future and color code accordingly.
@@ -29,3 +42,5 @@ $("document").ready(function () {});
     //  --set local storage (key and value) --> STORE BOTH TIME AND DESCRIPTION SO THAT NEXT APPEND KNOWS WHAT AND WHERE
     //      --maybe need to start by creating an object that has hourblocks and values for each...is that what I want to store?  Look at activity 1.
     //          --when setting the object local storage use JSON.stringify.  When retrieving get JSON.parse.
+
+});
