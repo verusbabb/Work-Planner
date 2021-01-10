@@ -1,8 +1,12 @@
-$(document).ready(function () {
-
-    moment().format();
+$("document").ready(function () {});
+    // moment().format();
 
     var hour1 = "";
+
+    var storeOne = "Hello";
+
+    localStorage.setItem("storeOne", storeOne);
+    localStorage.getItem("storeOne");
 
     // WHEN the page first loads:
     // THEN it needs to update to current date and time.
@@ -25,5 +29,3 @@ $(document).ready(function () {
     //  --set local storage (key and value) --> STORE BOTH TIME AND DESCRIPTION SO THAT NEXT APPEND KNOWS WHAT AND WHERE
     //      --maybe need to start by creating an object that has hourblocks and values for each...is that what I want to store?  Look at activity 1.
     //          --when setting the object local storage use JSON.stringify.  When retrieving get JSON.parse.
-
-});
