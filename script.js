@@ -35,6 +35,9 @@ $(document).ready(function () {
     function init() {
 
         var schedule8 = JSON.parse(localStorage.getItem("schedule8"));
+        // JON - thinking a forEach method would post all key values to their input field
+        // but not sure how they assign to proper time slot.  Feel like the key needs to have an object
+        // for each value that includes time and task description.
         $("#input8").val(schedule8);
 
         // WHEN current date and time is set...
@@ -59,18 +62,20 @@ $(document).ready(function () {
 
         // WHEN user clicks the save button...
         // THEN write tasks to local storage with their proper time-block.
-
-        $("button").on("click", function (event) {
+        
+        $("button").on("click", function(event) {
             event.preventDefault();
-            // localStorage.removeItem("schedule8");
-            var task8 = $("#input8").val().trim();
-            // userTasks.push(task8);
+            
+            // this is targeting just the 8 am hour.  Can't figure a way...
+            // to have this listen for over hour saves and store values to those hours
 
+            var task8 = $("#input8").val().trim();
             localStorage.setItem("schedule8", JSON.stringify(task8));
         });
 
 
     }
+    
 });
 
 
