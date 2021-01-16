@@ -39,7 +39,7 @@ The basic calendar interface was built in HTML.  While it is possible to build t
 
 ## Notes about Folders in the Repository
 
-- The "Assets" folder contains a .gif file that provides a visual demonstration of our original assignment.
+- The "Assets" folder contains a .gif file that provides a visual demonstration of our original assignment, and the screenshot of the working app that you see in this README.
 - The "Develop" folder contains the original index.html, style.css, and the original assignmentREADME file we were given at the start of the project.
 - The root director contains all the files that I fully developed to successfully run the application, and of course, this README.
 
