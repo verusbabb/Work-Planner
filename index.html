@@ -29,12 +29,18 @@
       <p id="currentDay" class="lead"></p>
     </header>
     <div class="container">
+
+      <!-- Using Bootstrap grid system to create calendar interface -->
       
       <div class="row">
         <!-- <div class="row"></div> -->
         <div class="col-md-3"></div>
         <div class="col-md-6">
 
+          <!-- Each code block below is a row on the calendar -->
+          <!-- consisting of a time block, an input box, and a save button -->
+          <!-- ids are created as reference handles in javascroipt -->
+          <!-- most class definitions are Bootstrap, a few add custom styling via the .css file -->
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text hour time-block">8 am</span>
@@ -121,7 +127,7 @@
             </div>
             <input id="input16" type="text" class="form-control">
             <div class="input-group-append">
-              <button id="hour16" type="button" class="input-group-text saveBtn">Save</button>
+              <button id="saveBtn16" type="button" class="input-group-text saveBtn">Save</button>
             </div>
           </div>
     
@@ -131,7 +137,7 @@
             </div>
             <input id="input17" type="text" class="form-control">
             <div class="input-group-append">
-              <button id="hour17" type="button" class="input-group-text saveBtn">Save</button>
+              <button id="saveBtn17" type="button" class="input-group-text saveBtn">Save</button>
             </div>
           </div>
     

@@ -1,50 +1,27 @@
 $(document).ready(function () {
 
-    // WHEN the page first loads:
-    // THEN it needs to update to current date and time.
-    //  --Moment()
+    // Accessing moment.js to capture current time/date.
     var now = moment().format('MMMM Do YYYY'); //for calendar date at the top of page
     var whichHour = moment().format("H"); //for checking past, present, future of each hour-block in work-planner
     var exactTime = moment().format("h:mm:ss")
+    
+    // added this, but not using; purpose was to be a trigger value for resetting calendar items at midnight
+    // not practical unless data is being stored on an always running server (so here for exercise, not functionality)
+    // see notes on commented-out code block at bottom of script
     var midNight = "00:00:00";
-    console.log(now);
-    console.log(whichHour);
-    console.log(exactTime);
 
+    // Assigning moment.js date to top of calendar
     var $todaysDate = $("#currentDay");
     $todaysDate.text(now);
 
-    // Create empty string vars that correspond to all task inputs on the daily planner
 
-    var schedule8 = "";
-    var schedule9 = "";
-    var schedule10 = "";
-    var schedule11 = "";
-    var schedule12 = "";
-    var schedule13 = "";
-    var schedule14 = "";
-    var schedule15 = "";
-    var schedule16 = "";
-    var schedule17 = "";
-
-    // WHEN time/date is loaded...
-    // THEN check local storage for tasks that match date and hour blocks.
-    // --Only post those that match current date, otherwise clear from storage.
-
-    init();
-    function init() {
-
-        var schedule8 = JSON.parse(localStorage.getItem("schedule8"));
-        // JON - thinking a forEach method would post all key values to their input field
-        // but not sure how they assign to proper time slot.  Feel like the key needs to have an object
-        // for each value that includes time and task description.
-        $("#input8").val(schedule8);
-
-        // WHEN current date and time is set...
-        // THEN the app needs to check what calendar hours are in the past, present, and future and color code accordingly.
+    // Loop created to do two things:  
+        // color code the calendar time blocks based on past, present, future status
+        // load local storage items for each time block
 
         var hourInput = $("input");
 
+        // color coding
         var j = 8;
         for (i = 0; i < hourInput.length; i++) {
             console.log(whichHour);
@@ -57,45 +34,40 @@ $(document).ready(function () {
             else {
                 $(hourInput[i]).addClass("future");
             }
+            
+        // local storage retrieval
+            var task = JSON.parse(localStorage.getItem(j));
+            if (task) {
+                $(hourInput[i]).val(task);
+            }
             j++;
         }
 
-        // WHEN user clicks the save button...
-        // THEN write tasks to local storage with their proper time-block.
-        
+        // listening for a button click to trigger a local storage assignment
         $("button").on("click", function(event) {
             event.preventDefault();
             
-            // this is targeting just the 8 am hour.  Can't figure a way...
-            // to have this listen for over hour saves and store values to those hours
+            // identifying which button has been clicked
+            var whichBtn = event.target
 
-            var task8 = $("#input8").val().trim();
-            localStorage.setItem("schedule8", JSON.stringify(task8));
+            // assigning the input text to variable "task"
+            var task = $(whichBtn).parent().siblings("input").val().trim();
+
+            // returning the button id so that we can see which hour is being referred to.
+            // splitting off text so that just the hour indicator in button id can be used as local storage key.
+            var hour = $(whichBtn).attr("id").split("saveBtn")[1];
+            
+            // saving the tast description to local storage with "hour" as the key and "task" as value
+            localStorage.setItem(hour, JSON.stringify(task));
         });
 
-
-    }
-    
 });
 
-
-// var Save8 = $("#saveBtn8");
-// var Save9 = $("#saveBtn9");
-// var Save10 = $("#saveBtn10");
-// var Save11 = $("#saveBtn11");
-// var Save12 = $("#saveBtn12");
-// var Save13 = $("#saveBtn13");
-// var Save14 = $("#saveBtn14");
-// var Save15 = $("#saveBtn16");
-// var Save16 = $("#saveBtn16");
-// var Save17 = $("#saveBtn17");
-
-// var task9text = $("#input9").val().trim();
-// var task10text = $("#input10").val().trim();
-// var task11text = $("#input11").val().trim();
-// var task12text = $("#input12").val().trim();
-// var task13text = $("#input13").val().trim();
-// var task14text = $("#input14").val().trim();
-// var task15text = $("#input15").val().trim();
-// var task16text = $("#input16").val().trim();
-// var task17text = $("#input17").val().trim();
+// The calendar is, by design, only showing the current day's calendar items.
+// In the real world, storage of calendar items would need to be cleared at midnight every day.
+// If this code was constantly running on a server, I would be using the following code block to clear calendar at midnight.
+// for emptying calendar items
+// if (exactTime === midnight) {
+    //     localStorage.clear();
+    //     location.reload();
+    // }
