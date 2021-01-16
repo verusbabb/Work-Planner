@@ -45,7 +45,7 @@ The basic calendar interface was built in HTML.  While it is possible to build t
 
 ## Screen shot of final/working application
 
-![Working app screenshot] (https://github.com/verusbabb/Work-Planner/blob/main/Assets/Work-Day-Scheduler.png)
+![] (https://github.com/verusbabb/Work-Planner/blob/main/Assets/Work-Day-Scheduler.png)
 
 ## Link to the Working Application
 If you want to stay on top of your day, you need to click the link below and start using this amazing app.  Never miss an important event in your day again.
